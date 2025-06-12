@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add new feedback</title>
+  </head>
+  <body>
+    <form action="/feedbacks" method="post">
+      <label for="user">Username</label>
+      <input type="text" id="user" placeholder="username" name="username" />
+      <br />
+      <br />
+      <label for="feedback">Feedback</label>
+      <br />
+      <textarea
+        name="feedback"
+        id="feedback"
+        rows="7"
+        cols="35"
+        placeholder="Write your feedback..."
+      ></textarea>
+      <br />
+      <br />
+      <label for="rate">Rating</label>
+      <input
+        type="range"
+        name="rate"
+        id="rate"
+        min="1"
+        max="5"
+        value="3"
+        oninput="this.nextElementSibling.value = this.value"
+      />
+      <output>3</output>
+      <br />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

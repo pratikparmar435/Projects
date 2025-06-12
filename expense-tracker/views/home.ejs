@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All expenses</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body class="container-xxl">
+    <h1>Here's your all expenses:</h1>
+    <br />
+    <br />
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Id</th>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Spend Date</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% for(expense of expenses) {%>
+      <tr>
+        <td><%= expense.id %></td>
+        <td><%= expense.category %></td>
+        <td><%= expense.amount %></td>
+        <td><%= expense.spend_date %></td>
+        <td>
+          <a
+            href="/expenses/<%= expense.id %>/edit"
+            class="btn btn-outline-info"
+            >Edit</a
+          >
+        </td>
+        <td>
+          <form
+            action="/expenses/<%= expense.id %>?_method=DELETE"
+            method="post"
+          >
+            <button
+              class="btn btn-outline-danger"
+              onclick="return confirm('Are you sure?')"
+            >
+              Delete
+            </button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+    <form action="/expenses/new" method="GET">
+      <button class="btn btn-secondary" style="margin: 10px">
+        Add expense
+      </button>
+    </form>
+  </body>
+</html>

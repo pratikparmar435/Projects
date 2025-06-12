@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enroll student</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <form action="/student/enroll" method="post">
+      <label for="student_id">Student id:</label>
+      <input
+        type="text"
+        name="student_id"
+        id="student_id"
+        value="<%= student_id || '' %>"
+        style="width: 300px"
+      />
+      <br />
+      <br />
+      <label for="course"> Course :</label>
+      <select
+        name="course_id"
+        id="course"
+        onchange="showDescription()"
+        required
+      >
+        <% courses.forEach(course => { %>
+        <option
+          value="<%= course.id %>"
+          data-description="<%= course.description %>"
+        >
+          <%= course.name %>
+        </option>
+        <% }) %>
+      </select>
+      <br />
+      <p id="description" style="margin-top: 10px"></p>
+      <button>Enroll</button>
+    </form>
+  </body>
+  <script>
+    function showDescription() {
+      const select = document.getElementById("course");
+      const selectedOption = select.options[select.selectedIndex];
+      const description = selectedOption.getAttribute("data-description");
+      document.getElementById("description").textContent = description;
+    }
+
+    // Show description of the first option by default
+    window.onload = showDescription;
+  </script>
+</html>

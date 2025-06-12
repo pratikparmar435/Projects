@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All student list</title>
+  </head>
+  <body>
+    <h2>List of all students</h2>
+    <table border="2">
+      <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>dob</th>
+      </tr>
+      <% for(student of students) {%>
+      <tr>
+        <td><%= student.id %></td>
+        <td><%= student.name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.dob %></td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>

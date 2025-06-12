@@ -1,0 +1,63 @@
+/* General styles */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+  padding: 40px;
+  margin: 0;
+  color: #333;
+}
+
+/* Form styling */
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels and inputs */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+input[readonly] {
+  background-color: #e5e7eb;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Description text */
+#description {
+  font-style: italic;
+  color: #555;
+  margin-top: -15px;
+  margin-bottom: 20px;
+  padding-left: 2px;
+}

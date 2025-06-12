@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add expenses page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body class="container-xxl">
+    <h2>Add New Expenses:</h2>
+
+    <% if(typeof errorMessages !== "undefined" && errorMessages.length > 0){ %>
+    <div class="alert alert-danger">
+      <ul>
+        <% for(let msg of errorMessages) {%>
+        <li><%= msg %></li>
+        <% } %>
+      </ul>
+    </div>
+    <% } %>
+
+    <form
+      action="/expenses"
+      method="post"
+      style="width: 400px; margin-top: 20px"
+    >
+      <div class="mb-3 needs-validation">
+        <label for="amount" class="form-label"><b>Amount</b></label>
+        <input
+          type="number"
+          placeholder="Enter amount..."
+          id="amount"
+          name="amount"
+          class="form-control"
+          value="<%= formData?.amount || '' %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label"><b>Category</b></label>
+        <input
+          type="text"
+          placeholder="category..."
+          id="category"
+          name="category"
+          class="form-control"
+          value="<%= formData?.category || '' %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label"><b>Spend Date</b></label>
+        <input
+          type="date"
+          class="form-control"
+          name="spend_date"
+          id="date"
+          value="<%= formData?.spend_date || '' %>"
+        />
+      </div>
+      <button class="btn btn-secondary" style="margin: 10px">Add</button>
+    </form>
+  </body>
+</html>

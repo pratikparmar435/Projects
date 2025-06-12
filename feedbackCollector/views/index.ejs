@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>feedbacks</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <h1>Give your feedback here!</h1>
+    <% for(feedback of feedbacks) {%>
+    <div class="feedbacks">
+      <h3>user:<%= feedback.username %></h3>
+      <h2>Feedback:<%= feedback.feedback %></h2>
+      <h3>Rate:<%= feedback.rate %></h3>
+      <a href="http://localhost:8080/feedbacks/<%= feedback.id %>"
+        >Show details</a
+      >
+      <a href="http://localhost:8080/feedbacks/<%= feedback.id %>/edit">Edit</a>
+      <form
+        action="http://localhost:8080/feedbacks/<%= feedback.id %>?__method=DELETE"
+        method="POST"
+        style="display: inline-block"
+      >
+        <button>Delete</button>
+      </form>
+    </div>
+    <% } %>
+    <br />
+    <br />
+    <a href="http://localhost:8080/feedbacks/new">Add feedback</a>
+  </body>
+</html>

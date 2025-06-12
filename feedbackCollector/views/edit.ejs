@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit feedback</title>
+  </head>
+  <body>
+    <h1>Edit your feedback</h1>
+    <h6>id: <%= feedback.id %></h6>
+    <h3>user:<%= feedback.username %></h3>
+    <form action="/feedbacks/<%= feedback.id %>?__method=PATCH" method="POST">
+      <label for="feedback">Feedback</label>
+      <br />
+      <textarea
+        name="feedback"
+        id="feedback"
+        rows="7"
+        cols="35"
+        placeholder="Write your feedback..."
+      >
+<%= feedback.feedback %></textarea
+      >
+      <br />
+      <br />
+      <label for="rate">Rating</label>
+      <input
+        type="range"
+        name="rate"
+        id="rate"
+        min="1"
+        max="5"
+        value="<%= feedback.rate %>"
+        oninput="this.nextElementSibling.value = this.value"
+      />
+      <output></output>
+      <br />
+      <button>Submit</button>
+    </form>
+  </body>
+</html>

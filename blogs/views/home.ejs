@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Blogs</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+
+      .post-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .post-author {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .post-title {
+        font-size: 20px;
+        margin: 10px 0 5px;
+        color: #333;
+      }
+
+      .post-content {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .comments {
+        list-style: none;
+        padding-left: 0;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+        padding-top: 10px;
+      }
+
+      .comments li {
+        margin-bottom: 8px;
+      }
+
+      .commenter {
+        font-weight: bold;
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <% for (let post of posts) { %>
+    <div class="post-card">
+      <div class="post-author">Author: <%= post.author %></div>
+      <div class="post-title"><%= post.title %></div>
+      <div class="post-content"><%= post.content %></div>
+
+      <ul class="comments">
+        <h4>comments:</h4>
+        <% for (let comment of post.comments) { %>
+        <li>
+          <span class="commenter"><%= comment.commenter %>:</span> <%=
+          comment.content %>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+    <% } %>
+  </body>
+</html>
