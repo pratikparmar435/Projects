@@ -1,0 +1,533 @@
+/* General Styles */
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  font-family: "Crimson Text", serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  background-color: black;
+  padding: 15px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-size: 2.5rem;
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.logo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.search-bar {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.search-bar input {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  background-color: #333;
+  color: white;
+  width: 400px;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* Navigation */
+.nav {
+  background-color: black;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-container a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  transition: 0.3s;
+}
+
+.nav-container a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+  height: 530px;
+  background-color: #171717;
+}
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-content h1,
+.main-content h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.explore-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.model img {
+  height: 100%;
+}
+/* Footer */
+.footer {
+  background-color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  color: #000;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.footer-logo span {
+  font-family: "Crimson Text", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.5rem;
+}
+
+.footer-text p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: #171717;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: #000;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.social-icons span {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.footer-section1 {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  font-weight: 500;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  font-size: 1.2rem;
+  font-weight: 550;
+}
+
+/* About us,Support,Contact us*/
+
+.about-heading,
+.support-heading,
+.contact-heading {
+  font-size: 3.5rem;
+  font-weight: 800;
+}
+.about-content,
+.support-content,
+.contact-content {
+  display: flex;
+  flex-direction: column;
+}
+.about-content,
+.support-content,
+.contact-content span {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.support-content span a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Register section  */
+.login-form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.register-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.register-header {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 2px solid;
+  border-radius: 8px;
+  width: 20rem;
+  margin: 20px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 1.3rem;
+  opacity: 0.7;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  padding-top: 20px;
+  background: none;
+  width: 100%;
+  color: white;
+  font-size: 1rem;
+}
+
+input:focus + label {
+  top: 0px;
+  font-size: 12px;
+}
+
+.register-btn {
+  font-size: 2rem;
+  border-radius: 50px;
+  width: 12rem;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.register-login {
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+.login-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+  border-radius: 10px;
+  padding: 10px;
+  width: 17rem;
+  text-align: center;
+  background-color: #333;
+}
+
+.login-btn a {
+  text-decoration: none; /* Removes underline */
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 300;
+  margin-right: 10px;
+}
+.login-par {
+  font-weight: 300;
+  opacity: 0.9;
+}
+.or-txt {
+  font-size: 25px;
+}
+
+.form-container {
+  height: 300px;
+  width: 500px;
+}
+
+.detail-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 73vh;
+  background-color: #181818;
+}
+
+.form-container {
+  background-color: #222;
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px solid gray;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Spacing between input boxes */
+  margin-bottom: 15px;
+}
+
+.detail-input-box {
+  background-color: #181818;
+  padding: 10px;
+  border: 2px solid gray;
+  border-radius: 8px;
+  width: 48%;
+  text-align: left;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-input-box label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.detail-input-box input {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.explore-btn {
+  background-color: #1e6ab4;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.explore-btn:hover {
+  background-color: #155a9a;
+}
+
+/* styling page  */
+.main-style-section {
+  height: auto;
+  background-color: #171717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.styling-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Adds space between rows */
+  /* height: 800px; */
+  /* margin-bottom: 50px; */
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between images in a row */
+  width: 100%;
+}
+
+.styling-box {
+  height: 200px;
+  width: 300px;
+  background-color: #333; /* Optional: Add background for visibility */
+  border-radius: 12px; /* Optional: Add rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.styling-box img {
+  width: 90%; /* Ensure full width inside styling-box */
+  height: auto;
+  border-radius: 8px;
+}
+
+.styling-box a {
+  position: absolute;
+  margin-top: 170px;
+  background-color: black;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/* cloths styling  */
+/* Main Section Styling */
+.main-style-section {
+  background-color: #171717;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.cloths-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cloths-style a {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.cloths-style {
+  background-color: #333;
+  width: 70%;
+  border-radius: 25px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+.cloth-img {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 70px;
+}
+
+.cloth-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.cloth-img img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
