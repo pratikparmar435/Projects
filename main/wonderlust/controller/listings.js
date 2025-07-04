@@ -29,24 +29,14 @@ const renderNewForm = (req, res) => {
 // };
 
 const addNewListing = async (req, res, next) => {
-  try {
-    console.log("req.user:", req.user); // 👈 Check this
-
-    if (!req.user) {
-      req.flash("error", "You must be logged in to create a listing");
-      return res.redirect("/login");
-    }
-
-    const newListing = new Listing(req.body.listing);
-    newListing.owner = req.user._id;
-
-    await newListing.save();
-    req.flash("success", "New Listing Created");
-    res.redirect("/listings");
-  } catch (err) {
-    console.error("Error in addNewListing:", err); // 👈 Show exact error
-    next(err);
-  }
+  let url = req.file.path;
+  let filename = req.file.filename;
+  const newListing = new Listing(req.body.listing);
+  newListing.owner = req.user._id;
+  newListing.image = { url, filename };
+  await newListing.save();
+  req.flash("success", "New Listing Created");
+  res.redirect("/listings");
 };
 
 const showListing = async (req, res) => {
@@ -73,12 +63,21 @@ const renderEditForm = async (req, res) => {
     req.flash("error", "Listing does not exist");
     return res.redirect("/listings");
   }
-  res.render("listings/edit.ejs", { toEditListing });
+
+  let originalImgUrl = toEditListing.image.url;
+  originalImgUrl = originalImgUrl.replace("/upload", "/upload/h_250,w_300");
+  res.render("listings/edit.ejs", { toEditListing, originalImgUrl });
 };
 
 const editListing = async (req, res) => {
   const { id } = req.params;
-  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+  let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+  if (typeof req.file != "undefined") {
+    let url = req.file.path;
+    let filename = req.file.filename;
+    listing.image = { url, filename };
+    await listing.save();
+  }
   req.flash("updating", "Listing updated");
   res.redirect(`/listings/${id}`);
 };

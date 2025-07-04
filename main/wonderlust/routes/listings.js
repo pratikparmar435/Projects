@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
+
 const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
@@ -11,17 +15,17 @@ const {
   editListing,
   deleteListing,
 } = require("../controller/listings.js");
+const multer = require("multer");
+const { storage } = require("../cloudConfig.js");
+const upload = multer({ storage });
 
 router
   .route("/")
   .get(wrapAsync(index))
   .post(
     isLoggedIn,
+    upload.single("listing[image]"),
     validateListing,
-    (req, res, next) => {
-      console.log("req.user in POST /listings:", req.user);
-      next();
-    },
     wrapAsync(addNewListing)
   );
 
@@ -31,7 +35,13 @@ router.get("/new", isLoggedIn, renderNewForm);
 router
   .route("/:id")
   .get(wrapAsync(showListing))
-  .put(isLoggedIn, isOwner, validateListing, wrapAsync(editListing));
+  .put(
+    isLoggedIn,
+    isOwner,
+    upload.single("listing[image]"),
+    validateListing,
+    wrapAsync(editListing)
+  );
 
 //edit route
 router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(renderEditForm));
