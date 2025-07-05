@@ -1,4 +1,6 @@
 const Listing = require("../models/listing");
+const axios = require("axios");
+const mapKey = process.env.MAPTILER_KEY;
 
 const index = async (req, res) => {
   const allListings = await Listing.find({});
@@ -6,35 +8,27 @@ const index = async (req, res) => {
 };
 
 const renderNewForm = (req, res) => {
-  res.render("listings/new.ejs");
+  res.render("listings/new.ejs", { MAPTILER_KEY: process.env.MAPTILER_KEY });
 };
 
-// const addNewListing = async (req, res, next) => {
-//   // const { title, description, image, price, location, country } = req.body;
-//   // const newListing = {
-//   //   title: title,
-//   //   description: description,
-//   //   image: image,
-//   //   price: price,
-//   //   location: location,
-//   //   country: country,
-//   // };
-//   //or
-//   const newListing = new Listing(req.body.listing);
-//   newListing.owner = req.user._id;
-//   console.log(newListing);
-//   await newListing.save();
-//   req.flash("success", "New Listing Created");
-//   res.redirect("/listings");
-// };
-
 const addNewListing = async (req, res, next) => {
+  const response = await axios.get(
+    `https://api.maptiler.com/geocoding/${req.body.listing.location}.json`,
+    {
+      params: {
+        key: mapKey,
+        limit: 1,
+      },
+    }
+  );
   let url = req.file.path;
   let filename = req.file.filename;
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
   newListing.image = { url, filename };
-  await newListing.save();
+  newListing.geometry = response.data.features[0].geometry;
+  let savedListing = await newListing.save();
+  console.log(savedListing);
   req.flash("success", "New Listing Created");
   res.redirect("/listings");
 };

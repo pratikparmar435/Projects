@@ -1,4 +1,6 @@
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Plus Jakarta Sans", sans-serif !important;
   display: flex;
   flex-direction: column;
@@ -104,4 +106,9 @@ body {
 
 .show-img {
   height: 25vh;
+}
+
+#map {
+  height: 400px;
+  width: 82vh;
 }
