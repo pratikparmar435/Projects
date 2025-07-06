@@ -1,2 +1,4 @@
 **/node_modules/
 **/.env
+git rm --cached projects/main/wonderlust/.env
+git rm -r --cached projects/main/wonderlust/node_modules/
