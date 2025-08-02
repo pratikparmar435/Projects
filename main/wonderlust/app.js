@@ -10,14 +10,29 @@ const listingRoutes = require("./routes/listings.js");
 const reviewRoutes = require("./routes/reviews.js");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-const secret = "iambatman";
+const secret = process.env.SECRET;
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategies = require("passport-local");
 const User = require("./models/user.js");
 const userRoutes = require("./routes/users.js");
+const dbUrl = process.env.ATLASDB_URL;
+const MongoStore = require("connect-mongo");
+
+const store = MongoStore.create({
+  mongoUrl: dbUrl,
+  crypto: {
+    secret: secret,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+  console.log("Error in Mongo session store:", err);
+});
 
 const sessionOption = {
+  store: store,
   secret: secret,
   resave: false,
   saveUninitialized: true,
@@ -27,6 +42,7 @@ const sessionOption = {
     httpOnly: true,
   },
 };
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -47,16 +63,16 @@ passport.deserializeUser(User.deserializeUser());
 app.engine("ejs", ejsMate);
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/wonderlust");
+  await mongoose.connect(dbUrl);
 }
 
 main()
   .then((res) => console.log("Connection with database successful"))
   .catch((err) => console.log(err));
 
-app.get("/", (req, res) => {
-  res.send("Working");
-});
+// app.get("/", (req, res) => {
+//   res.send("Working");
+// });
 
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
