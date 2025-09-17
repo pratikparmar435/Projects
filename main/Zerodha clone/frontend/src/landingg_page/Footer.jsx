@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="container border-top">
+    <div className="container border-top mt-5">
       <div className="row mt-5">
         <div className="col">
           <img

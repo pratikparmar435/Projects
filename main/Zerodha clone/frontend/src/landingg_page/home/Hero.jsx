@@ -13,7 +13,7 @@ export default function Hero() {
           more.
         </p>
         <button
-          className="btn btn-primary p-2 mb-5"
+          className="btn btn-primary p-2"
           style={{ width: "15%", margin: "0 auto", fontSize: "1.1rem" }}
         >
           Signup Now
