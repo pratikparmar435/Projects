@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="container" style={{ marginTop: "70px" }}>
+    <div className="container border-bottom" style={{ marginTop: "70px" }}>
       <div
         className="text-center text-muted p-5"
         style={{ lineHeight: "3rem" }}
@@ -10,7 +10,8 @@ export default function Hero() {
         <p>
           Check out our{" "}
           <a href="" style={{ textDecoration: "none" }}>
-            investment offerings <i class="fa-solid fa-arrow-right-long"></i>
+            investment offerings{" "}
+            <i className="fa-solid fa-arrow-right-long"></i>
           </a>
         </p>
       </div>
