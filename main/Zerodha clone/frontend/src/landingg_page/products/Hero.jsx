@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="container border-bottom" style={{ marginTop: "70px" }}>
+    <div className="container border-bottom">
       <div
         className="text-center text-muted p-5"
         style={{ lineHeight: "3rem" }}

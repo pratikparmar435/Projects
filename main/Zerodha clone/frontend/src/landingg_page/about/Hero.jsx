@@ -3,7 +3,7 @@ export default function Hero() {
     <>
       <div className="container">
         <div className="row p-5">
-          <h1 style={{ marginTop: "60px" }} className="fs-3 text-center">
+          <h1 className="fs-3 text-center">
             We pioneered the discount broking model in India. <br />
             Now, we are breaking ground with our technology.
           </h1>

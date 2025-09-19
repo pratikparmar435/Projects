@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <nav
-      className="navbar fixed-top navbar-expand-lg border-bottom"
+      className="navbar sticky-top navbar-expand-lg border-bottom"
       style={{ backgroundColor: "#fff" }}
     >
       <div className="container">
